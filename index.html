@@ -1,10 +1,670 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>你好，GitHub</title>
-  </head>
-  <body>
-    <h1>我好可愛!</h1>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Yi Fu Yan personal portfolio website" />
+    <meta name="author" content="bofrankbo" />
+    <title>Yi Fu Yan | Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --ink: #17202a;
+            --muted: #5d6978;
+            --line: #ded8cc;
+            --surface: #ffffff;
+            --soft: #fbf5e8;
+            --accent: #0f7c80;
+            --accent-dark: #0a5558;
+            --warm: #d9bd78;
+            --warm-strong: #a87a28;
+            --warm-soft: #fff8e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--surface);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(23, 32, 42, 0.08);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+        }
+
+        .navbar-brand {
+            color: var(--ink);
+            font-family: "Inter", sans-serif;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+
+        .nav-link {
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            color: var(--accent);
+        }
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            background:
+                linear-gradient(90deg, rgba(8, 22, 29, 0.86), rgba(8, 22, 29, 0.48)),
+                url("assets/img/Develop_enviroment.jpeg") center / cover;
+        }
+
+        .hero-content {
+            max-width: 760px;
+            padding: 8rem 0 5rem;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            gap: 0.45rem;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            color: #f2dfaa;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            font-size: clamp(2.5rem, 7vw, 5.2rem);
+            font-weight: 800;
+            line-height: 0.95;
+        }
+
+        .hero p {
+            max-width: 620px;
+            margin: 1.5rem 0 0;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: clamp(0.98rem, 1.6vw, 1.16rem);
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-top: 2rem;
+        }
+
+        .btn-main,
+        .btn-ghost {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border-radius: 8px;
+            padding: 0.75rem 1.1rem;
+            font-weight: 800;
+        }
+
+        .btn-main {
+            border: 1px solid var(--accent);
+            color: #fff;
+            background: var(--accent);
+        }
+
+        .btn-main:hover {
+            color: #fff;
+            background: var(--accent-dark);
+        }
+
+        .btn-ghost {
+            border: 1px solid rgba(255, 255, 255, 0.36);
+            color: #fff;
+        }
+
+        .btn-ghost:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        main {
+            overflow: hidden;
+        }
+
+        .section {
+            padding: 5.5rem 0;
+        }
+
+        .section:nth-of-type(even) {
+            background: var(--soft);
+        }
+
+        .section-head {
+            max-width: 760px;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-kicker {
+            display: inline-block;
+            margin-bottom: 0.65rem;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .section h2 {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            font-size: clamp(1.7rem, 3vw, 2.6rem);
+            font-weight: 800;
+            line-height: 1.08;
+        }
+
+        .section-head p {
+            margin: 1rem 0 0;
+            color: var(--muted);
+            font-size: 0.98rem;
+            line-height: 1.9;
+        }
+
+        .project-card,
+        .skill-card,
+        .contact-panel {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .stats {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .stat {
+            padding: 1.1rem;
+            border-left: 4px solid var(--warm);
+            background: var(--warm-soft);
+        }
+
+        .stat strong {
+            display: block;
+            font-family: "Inter", sans-serif;
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .project-card {
+            display: flex;
+            min-height: 260px;
+            flex-direction: column;
+            padding: 1.25rem;
+        }
+
+        .skill-card {
+            padding: 1.15rem;
+        }
+
+        .project-card i {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: #fff;
+            background: var(--accent);
+        }
+
+        .project-card h3 {
+            margin: 1.1rem 0 0.55rem;
+            font-family: "Inter", sans-serif;
+            font-size: 1.08rem;
+            font-weight: 800;
+        }
+
+        .skill-card h3 {
+            margin: 0 0 0.45rem;
+            font-family: "Inter", sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .skill-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        .project-tags span {
+            border: 1px solid var(--warm);
+            border-radius: 999px;
+            padding: 0.28rem 0.65rem;
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: var(--warm-soft);
+        }
+
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 1.1rem;
+            margin: 0;
+            padding: 0 0 0 1.4rem;
+            list-style: none;
+        }
+
+        .timeline-group + .timeline-group {
+            margin-top: 2rem;
+        }
+
+        .timeline-group-title {
+            margin: 0 0 1rem;
+            font-family: "Inter", sans-serif;
+            font-size: 1.18rem;
+            font-weight: 800;
+        }
+
+        .timeline::before {
+            position: absolute;
+            top: 0.45rem;
+            bottom: 0.45rem;
+            left: 0.42rem;
+            width: 2px;
+            content: "";
+            background: var(--line);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1.2rem 1.2rem 1.2rem 1.35rem;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .timeline-item::before {
+            position: absolute;
+            top: 1.45rem;
+            left: -1.39rem;
+            width: 14px;
+            height: 14px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            content: "";
+            background: var(--accent);
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .timeline-time {
+            display: inline-flex;
+            margin-bottom: 0.45rem;
+            color: var(--warm-strong);
+            font-size: 0.86rem;
+            font-weight: 900;
+        }
+
+        .timeline-item h3 {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            font-size: 1.05rem;
+            font-weight: 800;
+        }
+
+        .timeline-item p {
+            margin: 0.5rem 0 0;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+            gap: 1.2rem;
+            align-items: start;
+        }
+
+        .email-box {
+            padding: 1.4rem;
+            color: #fff;
+            border-radius: 8px;
+            background: var(--accent-dark);
+        }
+
+        .email-box i {
+            margin-right: 0.5rem;
+        }
+
+        .email-box a {
+            display: inline-block;
+            margin-top: 0.8rem;
+            color: #fff;
+            font-size: 0.98rem;
+            font-weight: 800;
+            word-break: break-word;
+        }
+
+        .contact-panel {
+            padding: 1.4rem;
+        }
+
+        .form-label {
+            color: var(--ink);
+            font-weight: 800;
+        }
+
+        .form-control {
+            border-color: var(--line);
+            border-radius: 8px;
+            padding: 0.8rem 0.9rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 0.2rem rgba(15, 124, 128, 0.14);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .footer {
+            padding: 2rem 0;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+            background: #fff;
+        }
+
+        @media (max-width: 992px) {
+            .project-grid,
+            .skills-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 78vh;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content {
+                padding: 6rem 0 4rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .hero-actions {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .btn-main,
+            .btn-ghost {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg site-nav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#home">Yi Fu Yan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-3 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="#project">Project</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="#timeline">Timeline</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="container px-4">
+            <div class="hero-content">
+                <span class="eyebrow"><i class="fa-solid fa-code"></i> Personal</span>
+                <h1>Yi Fu Yan</h1>
+                <p>Hi, I am Frank. I focus on large language model applications and AI-driven research. I graduated from the Department of Computer Science and Information Engineering at the National University of Kaohsiung. Under the supervision of Professor Chien-Feng Huang, my research explored the integration of large language models with quantitative and data-driven methodologies. My interests include machine learning, data science, and AI agent systems.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn-main" href="#project"><i class="fa-solid fa-folder-open"></i> My Work</a>
+                    <a class="btn-ghost" href="#contact"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="project">
+            <div class="container px-4">
+                <div class="section-head">
+                    <span class="section-kicker">Project</span>
+                    <h2>Project</h2>
+                    <p>Three sample project cards are shown for now. They can later be replaced with real projects, links, screenshots, and technical details.</p>
+                </div>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <i class="fa-solid fa-cubes"></i>
+                        <h3>Minecraft Torchrism Mod</h3>
+                        <p>A Minecraft game mod sample that highlights gameplay expansion, content design, and player experience improvements.</p>
+                        <div class="project-tags">
+                            <span>Game Mod</span>
+                            <span>Java</span>
+                            <span>Community</span>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <i class="fa-solid fa-passport"></i>
+                        <h3>Passport OCR Demo</h3>
+                        <p>A sample document recognition project for describing OCR workflows, image processing, and structured field parsing.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>OCR</span>
+                            <span>Flask</span>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <i class="fa-solid fa-route"></i>
+                        <h3>Trip Management Tool</h3>
+                        <p>A sample trip management tool for showcasing form flows, data management, and admin interface design.</p>
+                        <div class="project-tags">
+                            <span>Web App</span>
+                            <span>UI</span>
+                            <span>Data</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="timeline">
+            <div class="container px-4">
+                <div class="section-head">
+                    <h2>Timeline</h2>                </div>
+                <div class="timeline-group">
+                    <h3 class="timeline-group-title">Education</h3>
+                    <ol class="timeline">
+                        <li class="timeline-item">
+                            <span class="timeline-time">2023/9 - 2025/6</span>
+                            <h3>Master's Program in Computer Science and Information Engineering</h3>
+                            <p>National University of Kaohsiung. Focused on large language model applications, prompt engineering, AI workflows, and data-driven research methods.</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-time">2019/9 - 2023/6</span>
+                            <h3>Bachelor's Program in Applied Physics</h3>
+                            <p>National University of Kaohsiung. Built a foundation in analytical thinking, mathematics, programming, and scientific problem solving.</p>
+                        </li>
+                    </ol>
+                </div>
+                <div class="timeline-group">
+                    <h3 class="timeline-group-title">Teaching Experience</h3>
+                    <ol class="timeline">
+                        <li class="timeline-item">
+                            <span class="timeline-time">2023/9 - 2025/9</span>
+                            <h3>Teaching Assistant, National University of Kaohsiung</h3>
+                            <p>Supported students in programming and applied AI topics, including KNN-based projects, LLM application concepts, and text processing methods such as TF-IDF.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="container px-4">
+                <div class="section-head">
+                    <span class="section-kicker">Skills</span>
+                    <h2>Skills</h2>
+                    <p>A quick overview of technical areas for the portfolio. These can be replaced with your final skill list later.</p>
+                </div>
+                <div class="skills-grid">
+                    <article class="skill-card">
+                        <h3>AI & LLM</h3>
+                        <p>Large language model applications, AI agents, and research workflows.</p>
+                    </article>
+                    <article class="skill-card">
+                        <h3>Python</h3>
+                        <p>Data processing, automation, Flask apps, and backend utilities.</p>
+                    </article>
+                    <article class="skill-card">
+                        <h3>Data Science</h3>
+                        <p>Quantitative analysis, structured data handling, and model-driven exploration.</p>
+                    </article>
+                    <article class="skill-card">
+                        <h3>Web Development</h3>
+                        <p>Responsive interfaces, portfolio pages, and practical web tools.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container px-4">
+                <div class="section-head">
+                    <span class="section-kicker">Contact</span>
+                    <h2>Contact</h2>
+                    <p>Email is the only contact method for now. Write a message below and the form will open your default email app with the content filled in.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="email-box">
+                        <div><i class="fa-solid fa-envelope"></i>Email</div>
+                        <a href="mailto:bofrankbo@gmail.com">bofrankbo@gmail.com</a>
+                    </div>
+                    <form class="contact-panel" id="emailForm">
+                        <div class="mb-3">
+                            <label class="form-label" for="visitorName">Your Name</label>
+                            <input class="form-control" id="visitorName" name="visitorName" type="text" placeholder="For example: Alex Chen" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="visitorMessage">Message</label>
+                            <textarea class="form-control" id="visitorMessage" name="visitorMessage" placeholder="Write your message here. The button will open your email app."></textarea>
+                        </div>
+                        <button class="btn-main" type="submit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Open Email App
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container px-4 d-flex flex-column flex-md-row justify-content-between gap-2">
+            <span>© 2026 Yi Fu Yan</span>
+            <a href="mailto:bofrankbo@gmail.com">bofrankbo@gmail.com</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const emailForm = document.querySelector("#emailForm");
+        const contactEmail = "bofrankbo@gmail.com";
+
+        emailForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const name = document.querySelector("#visitorName").value.trim() || "Website Visitor";
+            const message = document.querySelector("#visitorMessage").value.trim() || "Hello, I would like to get in touch with you.";
+            const subject = encodeURIComponent(`Message from personal website - ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\n\nMessage:\n${message}`);
+
+            window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+        });
+    </script>
+</body>
 </html>

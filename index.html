@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
     <style>
@@ -37,7 +37,7 @@
         body {
             margin: 0;
             color: var(--ink);
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             background: var(--surface);
         }
 
@@ -61,7 +61,7 @@
 
         .navbar-brand {
             color: var(--ink);
-            font-family: "Inter", sans-serif;
+            font-family: "IBM Plex Sans", sans-serif;
             font-weight: 800;
             letter-spacing: 0;
         }
@@ -83,12 +83,12 @@
             align-items: center;
             color: #fff;
             background:
-                linear-gradient(90deg, rgba(8, 22, 29, 0.86), rgba(8, 22, 29, 0.48)),
-                url("assets/img/Develop_enviroment.jpeg") center / cover;
+                linear-gradient(90deg, rgba(8, 22, 29, 0.96) 0%, rgba(8, 22, 29, 0.84) 42%, rgba(8, 22, 29, 0.36) 100%),
+                url("assets/img/Develop_enviroment.jpeg") 68% center / cover;
         }
 
         .hero-content {
-            max-width: 760px;
+            max-width: 680px;
             padding: 8rem 0 5rem;
         }
 
@@ -106,7 +106,7 @@
 
         .hero h1 {
             margin: 0;
-            font-family: "Inter", sans-serif;
+            font-family: "IBM Plex Sans", sans-serif;
             font-size: clamp(2.5rem, 7vw, 5.2rem);
             font-weight: 800;
             line-height: 0.95;
@@ -120,11 +120,17 @@
             line-height: 1.8;
         }
 
+        .hero-title {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
+            font-weight: 800;
+        }
+
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 0.85rem;
-            margin-top: 2rem;
+            margin-top: 2.4rem;
         }
 
         .btn-main,
@@ -190,7 +196,7 @@
 
         .section h2 {
             margin: 0;
-            font-family: "Inter", sans-serif;
+            font-family: "IBM Plex Sans", sans-serif;
             font-size: clamp(1.7rem, 3vw, 2.6rem);
             font-weight: 800;
             line-height: 1.08;
@@ -203,8 +209,17 @@
             line-height: 1.9;
         }
 
+        .about-copy {
+            max-width: 900px;
+            margin: 0;
+            padding-left: 1.4rem;
+            color: var(--ink);
+            border-left: 4px solid var(--accent);
+            font-size: clamp(1rem, 1.6vw, 1.16rem);
+            line-height: 1.9;
+        }
+
         .project-card,
-        .skill-card,
         .contact-panel {
             border: 1px solid var(--line);
             border-radius: 8px;
@@ -224,7 +239,7 @@
 
         .stat strong {
             display: block;
-            font-family: "Inter", sans-serif;
+            font-family: "IBM Plex Sans", sans-serif;
             font-size: 1.8rem;
             line-height: 1;
         }
@@ -236,13 +251,7 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1rem;
         }
 
@@ -251,10 +260,6 @@
             min-height: 260px;
             flex-direction: column;
             padding: 1.25rem;
-        }
-
-        .skill-card {
-            padding: 1.15rem;
         }
 
         .project-card i {
@@ -270,28 +275,14 @@
 
         .project-card h3 {
             margin: 1.1rem 0 0.55rem;
-            font-family: "Inter", sans-serif;
+            font-family: "IBM Plex Sans", sans-serif;
             font-size: 1.08rem;
-            font-weight: 800;
-        }
-
-        .skill-card h3 {
-            margin: 0 0 0.45rem;
-            font-family: "Inter", sans-serif;
-            font-size: 1rem;
             font-weight: 800;
         }
 
         .project-card p {
             color: var(--muted);
             line-height: 1.75;
-        }
-
-        .skill-card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.92rem;
-            line-height: 1.7;
         }
 
         .project-tags {
@@ -307,9 +298,53 @@
             border-radius: 999px;
             padding: 0.28rem 0.65rem;
             color: var(--muted);
+            font-family: "JetBrains Mono", monospace;
             font-size: 0.82rem;
             font-weight: 700;
             background: var(--warm-soft);
+        }
+
+        .skills-terminal {
+            max-width: 900px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #111827;
+        }
+
+        .terminal-bar {
+            display: flex;
+            gap: 0.45rem;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: #0b1220;
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #64748b;
+        }
+
+        .terminal-body {
+            margin: 0;
+            padding: 1.25rem;
+            overflow-x: auto;
+            color: #d1d5db;
+            font-family: "JetBrains Mono", monospace;
+            font-size: clamp(0.82rem, 1.6vw, 0.95rem);
+            line-height: 1.9;
+            white-space: pre-wrap;
+        }
+
+        .terminal-prompt {
+            color: #5eead4;
+        }
+
+        .terminal-label {
+            color: #93c5fd;
         }
 
         .timeline {
@@ -327,7 +362,7 @@
 
         .timeline-group-title {
             margin: 0 0 1rem;
-            font-family: "Inter", sans-serif;
+            font-family: "IBM Plex Sans", sans-serif;
             font-size: 1.18rem;
             font-weight: 800;
         }
@@ -373,7 +408,7 @@
 
         .timeline-item h3 {
             margin: 0;
-            font-family: "Inter", sans-serif;
+            font-family: "IBM Plex Sans", sans-serif;
             font-size: 1.05rem;
             font-weight: 800;
         }
@@ -382,6 +417,25 @@
             margin: 0.5rem 0 0;
             color: var(--muted);
             line-height: 1.75;
+        }
+
+        .timeline-details {
+            display: grid;
+            gap: 0.35rem;
+            margin: 0.75rem 0 0;
+            padding-left: 1.1rem;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .timeline-details strong {
+            color: var(--ink);
+            font-weight: 800;
+        }
+
+        .timeline-note {
+            margin-top: 0.35rem;
+            color: var(--muted);
         }
 
         .contact-grid {
@@ -445,7 +499,6 @@
 
         @media (max-width: 992px) {
             .project-grid,
-            .skills-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
             }
@@ -485,6 +538,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-3 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3" href="#project">Project</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3" href="#timeline">Timeline</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3" href="#skills">Skills</a></li>
@@ -497,12 +551,11 @@
     <header class="hero" id="home">
         <div class="container px-4">
             <div class="hero-content">
-                <span class="eyebrow"><i class="fa-solid fa-code"></i> Personal</span>
                 <h1>Yi Fu Yan</h1>
-                <p>Hi, I am Frank. I focus on large language model applications and AI-driven research. I graduated from the Department of Computer Science and Information Engineering at the National University of Kaohsiung. Under the supervision of Professor Chien-Feng Huang, my research explored the integration of large language models with quantitative and data-driven methodologies. My interests include machine learning, data science, and AI agent systems.
-                </p>
+                <p class="hero-title">I am interested in AI agent applications.</p>
                 <div class="hero-actions">
-                    <a class="btn-main" href="#project"><i class="fa-solid fa-folder-open"></i> My Work</a>
+                    <a class="btn-main" href="#about"><i class="fa-solid fa-user"></i> About Me</a>
+                    <a class="btn-ghost" href="#project"><i class="fa-solid fa-folder-open"></i> My Work</a>
                     <a class="btn-ghost" href="#contact"><i class="fa-solid fa-envelope"></i> Contact Me</a>
                 </div>
             </div>
@@ -510,12 +563,19 @@
     </header>
 
     <main>
+        <section class="section" id="about">
+            <div class="container px-4">
+                <div class="section-head">
+                    <h2>About Me</h2>
+                </div>
+                <p class="about-copy">Hi, I am Frank. I focus on large language model applications and AI-driven research. I graduated from the Department of Computer Science and Information Engineering at the National University of Kaohsiung. Under the supervision of Professor Chien-Feng Huang, my research explored the integration of large language models with quantitative and data-driven methodologies. My interests include machine learning, data science, and AI agent systems.</p>
+            </div>
+        </section>
+
         <section class="section" id="project">
             <div class="container px-4">
                 <div class="section-head">
-                    <span class="section-kicker">Project</span>
                     <h2>Project</h2>
-                    <p>Three sample project cards are shown for now. They can later be replaced with real projects, links, screenshots, and technical details.</p>
                 </div>
                 <div class="project-grid">
                     <article class="project-card">
@@ -529,23 +589,13 @@
                         </div>
                     </article>
                     <article class="project-card">
-                        <i class="fa-solid fa-passport"></i>
-                        <h3>Passport OCR Demo</h3>
-                        <p>A sample document recognition project for describing OCR workflows, image processing, and structured field parsing.</p>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>OCR</span>
-                            <span>Flask</span>
-                        </div>
-                    </article>
-                    <article class="project-card">
                         <i class="fa-solid fa-route"></i>
-                        <h3>Trip Management Tool</h3>
-                        <p>A sample trip management tool for showcasing form flows, data management, and admin interface design.</p>
+                        <h3>Full-Stack Web App</h3>
+                        <p>A Flask-based web application that combines passport OCR, structured data parsing, trip form workflows, and an admin interface.</p>
                         <div class="project-tags">
-                            <span>Web App</span>
-                            <span>UI</span>
-                            <span>Data</span>
+                          <span>Azure</span>
+                            <span>Flask</span>
+                            <span>Full Stack</span>
                         </div>
                     </article>
                 </div>
@@ -555,28 +605,39 @@
         <section class="section" id="timeline">
             <div class="container px-4">
                 <div class="section-head">
-                    <h2>Timeline</h2>                </div>
+                    <h2>Timeline</h2>
+                </div>
                 <div class="timeline-group">
                     <h3 class="timeline-group-title">Education</h3>
                     <ol class="timeline">
                         <li class="timeline-item">
                             <span class="timeline-time">2023/9 - 2025/6</span>
-                            <h3>Master's Program in Computer Science and Information Engineering</h3>
-                            <p>National University of Kaohsiung. Focused on large language model applications, prompt engineering, AI workflows, and data-driven research methods.</p>
+                            <h3>National University of Kaohsiung (NUK)</h3>
+                            <p>Master of Computer Science and Information Engineering</p>
+                            <ul class="timeline-details">
+                                <li><strong>GPA:</strong> 4.0,
+                                <strong>Ranking:</strong> 2 / 18</li>
+                                <li><strong>Advisor:</strong> Chien-Feng Huang</li>
+                                <li>
+                                    <strong>Journal Paper:</strong> An innovative hybrid investment model using large language models and genetic algorithms
+                                    <div class="timeline-note">Research Contribution:Led the thesis-based implementation, model design, experiments, and analysis; the paper was developed from my master's research.</div>
+                                </li>
+                                <li><strong>Master's Thesis:</strong> A Study of Investment Models Using Generative Pre-trained Transformers and Genetic Algorithms</li>
+                            </ul>
                         </li>
                         <li class="timeline-item">
                             <span class="timeline-time">2019/9 - 2023/6</span>
-                            <h3>Bachelor's Program in Applied Physics</h3>
-                            <p>National University of Kaohsiung. Built a foundation in analytical thinking, mathematics, programming, and scientific problem solving.</p>
+                            <h3>National University of Kaohsiung (NUK) </h3>
+                            <p>Bachelor of Applied Physics</p>
                         </li>
                     </ol>
                 </div>
                 <div class="timeline-group">
-                    <h3 class="timeline-group-title">Teaching Experience</h3>
+                    <h3 class="timeline-group-title">TA</h3>
                     <ol class="timeline">
                         <li class="timeline-item">
                             <span class="timeline-time">2023/9 - 2025/9</span>
-                            <h3>Teaching Assistant, National University of Kaohsiung</h3>
+                            <h3>T.A., National University of Kaohsiung</h3>
                             <p>Supported students in programming and applied AI topics, including KNN-based projects, LLM application concepts, and text processing methods such as TF-IDF.</p>
                         </li>
                     </ol>
@@ -587,27 +648,21 @@
         <section class="section" id="skills">
             <div class="container px-4">
                 <div class="section-head">
-                    <span class="section-kicker">Skills</span>
                     <h2>Skills</h2>
-                    <p>A quick overview of technical areas for the portfolio. These can be replaced with your final skill list later.</p>
+                    <p>A concise view of the tools and technical areas I work with.</p>
                 </div>
-                <div class="skills-grid">
-                    <article class="skill-card">
-                        <h3>AI & LLM</h3>
-                        <p>Large language model applications, AI agents, and research workflows.</p>
-                    </article>
-                    <article class="skill-card">
-                        <h3>Python</h3>
-                        <p>Data processing, automation, Flask apps, and backend utilities.</p>
-                    </article>
-                    <article class="skill-card">
-                        <h3>Data Science</h3>
-                        <p>Quantitative analysis, structured data handling, and model-driven exploration.</p>
-                    </article>
-                    <article class="skill-card">
-                        <h3>Web Development</h3>
-                        <p>Responsive interfaces, portfolio pages, and practical web tools.</p>
-                    </article>
+                <div class="skills-terminal" aria-label="Skills listed in a terminal-style layout">
+                    <div class="terminal-bar" aria-hidden="true">
+                        <span class="terminal-dot"></span>
+                        <span class="terminal-dot"></span>
+                        <span class="terminal-dot"></span>
+                    </div>
+                    <pre class="terminal-body"><span class="terminal-prompt">$ skills --list</span>
+
+<span class="terminal-label">backend</span>     Python, Flask, REST APIs
+<span class="terminal-label">ai</span>          LLM Apps, AI Agents, OCR
+<span class="terminal-label">frontend</span>    HTML, CSS, Bootstrap
+<span class="terminal-label">tools</span>       Git, GitHub, Azure</pre>
                 </div>
             </div>
         </section>
@@ -615,7 +670,6 @@
         <section class="section" id="contact">
             <div class="container px-4">
                 <div class="section-head">
-                    <span class="section-kicker">Contact</span>
                     <h2>Contact</h2>
                     <p>Email is the only contact method for now. Write a message below and the form will open your default email app with the content filled in.</p>
                 </div>

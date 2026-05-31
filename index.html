@@ -285,6 +285,21 @@
             line-height: 1.75;
         }
 
+        .project-points {
+            display: grid;
+            gap: 0.45rem;
+            margin: 0.25rem 0 0;
+            padding-left: 1.1rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .project-points strong {
+            color: var(--ink);
+            font-weight: 800;
+        }
+
         .project-tags {
             display: flex;
             flex-wrap: wrap;
@@ -589,11 +604,26 @@
                         </div>
                     </article>
                     <article class="project-card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>Smart Innovation Competition</h3>
+                        <p>Honorable Mention, FinTech IoT Group. May 2024 - Nov 2024.</p>
+                        <ul class="project-points">
+                            <li><strong>Method:</strong> Guided large language models to judge stock market direction and self-correct their predictions.</li>
+                            <li><strong>Backtesting:</strong> Conducted extensive data backtesting and achieved more than 40% annualized return.</li>
+                            <li><strong>Award:</strong> Honorable Mention in the FinTech IoT Group.</li>
+                        </ul>
+                        <div class="project-tags">
+                            <span>LLM</span>
+                            <span>FinTech</span>
+                            <span>Backtesting</span>
+                        </div>
+                    </article>
+                    <article class="project-card">
                         <i class="fa-solid fa-route"></i>
                         <h3>Full-Stack Web App</h3>
                         <p>A Flask-based web application that combines passport OCR, structured data parsing, trip form workflows, and an admin interface.</p>
                         <div class="project-tags">
-                          <span>Azure</span>
+                            <span>Azure</span>
                             <span>Flask</span>
                             <span>Full Stack</span>
                         </div>
@@ -617,7 +647,7 @@
                             <ul class="timeline-details">
                                 <li><strong>GPA:</strong> 4.0,
                                 <strong>Ranking:</strong> 2 / 18</li>
-                                <li><strong>Advisor:</strong> Chien-Feng Huang</li>
+                                <li><strong>Advisor:</strong> Prof. Chien-Feng Huang</li>
                                 <li>
                                     <strong>Journal Paper:</strong> An innovative hybrid investment model using large language models and genetic algorithms
                                     <div class="timeline-note">Research Contribution:Led the thesis-based implementation, model design, experiments, and analysis; the paper was developed from my master's research.</div>
@@ -649,7 +679,7 @@
             <div class="container px-4">
                 <div class="section-head">
                     <h2>Skills</h2>
-                    <p>A concise view of the tools and technical areas I work with.</p>
+                    <p>A concise view of the languages, AI workflows, cloud services, and development tools I work with.</p>
                 </div>
                 <div class="skills-terminal" aria-label="Skills listed in a terminal-style layout">
                     <div class="terminal-bar" aria-hidden="true">
@@ -659,10 +689,12 @@
                     </div>
                     <pre class="terminal-body"><span class="terminal-prompt">$ skills --list</span>
 
-<span class="terminal-label">backend</span>     Python, Flask, REST APIs
-<span class="terminal-label">ai</span>          LLM Apps, AI Agents, OCR
-<span class="terminal-label">frontend</span>    HTML, CSS, Bootstrap
-<span class="terminal-label">tools</span>       Git, GitHub, Azure</pre>
+<span class="terminal-label">languages.proficient</span>    Python (Pandas, Flask), Java (Gradle, OOP)
+<span class="terminal-label">languages.basic</span>         JavaScript, HTML, C#, Fortran, CSS, C, C++
+<span class="terminal-label">llm_api</span>                 LangChain, cloud provider APIs, LLM integration
+<span class="terminal-label">ai_workflows</span>            RAG, AI Agents, Prompt Engineering
+<span class="terminal-label">ai_tools</span>                Claude Code, Codex, Gemini CLI
+<span class="terminal-label">tools</span>                   GitHub, Unity, Azure, Cloudflare, R2 storage</pre>
                 </div>
             </div>
         </section>
